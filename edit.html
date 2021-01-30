@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/exportMethods.js" defer></script>
+    <script src="scripts/user/edit.js" defer></script>
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/edit.css">
+    <title>Edit</title>
+</head>
+
+<body class="container-fluid bg-color">
+    <header class="header">
+        <input type="checkbox" id="hamburg">
+        <label for="hamburg" class="hamburg">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </label>
+        <nav class="topmenu">
+            <ul class="menulist">
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="userdetails.html">Profile</a></li>
+            </ul>
+        </nav>
+        <h1><a href="chamois.html">Home</a></h1>
+        <img src="logo.png" alt="logo" class="hlogo">
+    </header>
+    <main>
+        <div id="answerSection"></div>
+        <div class="container">
+            <div>
+                <form id="form">
+                    <div class="row">
+                        <input class="col-m-6" name="lastname" type="text" placeholder="LastName">
+                        <input class="col-m-6" name="firstname" type="text" placeholder="Firstname">
+                        <input class="col-m-12" name="email" type="text" placeholder="Email">
+                        <input class="col-m-6" name="studycourse" type="text" placeholder="Studycourse">
+                        <input class="col-m-6" name="semester" type="text" placeholder="Semester">
+                        <input class="col-m-12" name="profPic" type="text" placeholder="Link to Profile Picture">
+                        <button class="col-m-3 btn btnEdit" type="button" id="sendEdit"><span>Edit</span></button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form id="editPWForm">
+                    <div class="row">
+                        <input class="col-m-6" type="text" name="emailPW" placeholder="email">
+                        <input class="col-m-6" type="password" name="oldPW" placeholder="Old PW">
+                        <input class="col-m-6" type="password" name="newPW" placeholder="New Password">
+                        <input class="col-m-6" type="password" name="newPW2" placeholder="Confirm Password">
+                        <button class="col-m-3 btn btnEditPW" type="button" id="editPassword"><span>Edit Password</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

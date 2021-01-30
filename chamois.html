@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/datepicker.js"></script>
+    <script src="scripts/exportMethods.js" defer></script>
+    <script src="scripts/tweets.js" defer></script>
+    <link rel="stylesheet" href="styles/datepicker.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/tweet.css">
+    <title>Chamois</title>
+</head>
+
+<body class="container-fluid bg-color">
+    <header class="header">
+        <input type="checkbox" id="hamburg">
+        <label for="hamburg" class="hamburg">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </label>
+        <nav class="topmenu">
+            <ul class="menulist">
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="userdetails.html">Profile</a></li>
+            </ul>
+        </nav>
+        <h1><a href="tweet.html">Home</a></h1>
+        <img src="logo.png" alt="logo" class="hlogo">
+    </header>
+    <main>
+        <div id="answerSection"></div>
+        <div class="container">
+            <h1>Timeline:</h1>
+            <div class="row">
+                <p class="col">First Date Tweets:</p>
+                <input class="col" type="text" id="date-input" autocomplete="off">
+            </div>
+            <div id="tweetTimeline"></div>
+        </div>
+        <form id="inputForm">
+            <div class="row">
+                <textarea id="tweet" name="tweet" placeholder="Tweet" rows="1" class="col-m-9"></textarea>
+                <button class="col-m-3 btn btnFirst" type="button" id="sendTweet"><span>Send</span></button>
+            </div>
+        </form>
+
+    </main>
+
+</body>
+
+</html>
