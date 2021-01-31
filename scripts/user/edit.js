@@ -63,7 +63,6 @@ var Twitter;
             request[key] = value.toString();
         });
         if (request.lastname && request.firstname && request.email && request.studycourse && request.semester) {
-            // if (request.email == userEmail) {
             request["command"] = "editUser";
             let answer = await Twitter.postToServer(request);
             if (answer) {
@@ -81,25 +80,23 @@ var Twitter;
                     else {
                         let alert = Twitter.createAlertElement(message, Twitter.KEYALERTOK);
                         answerSec.appendChild(alert);
-                        removeValuesFromInput();
-                        Twitter.deleteAuthCookie(false);
-                        if (answer.authCookieString) {
-                            Twitter.saveAuthCookie(answer.authCookieString);
+                        if (request.email == userEmail) {
+                            removeValuesFromInput();
+                            Twitter.deleteAuthCookie(false);
+                            if (answer.authCookieString) {
+                                Twitter.saveAuthCookie(answer.authCookieString);
+                            }
+                            fillFormWithActData();
                         }
-                        fillFormWithActData();
+                        else {
+                            Twitter.deleteAuthCookie(true);
+                        }
                     }
                 }
             }
             else {
                 console.log("No answer");
             }
-            // } else {
-            //     while (answerSec.firstChild) {
-            //         answerSec.removeChild(answerSec.lastChild);
-            //     }
-            //     let alert: HTMLDivElement = createAlertElement("Wrong Email", KEYALERTERROR);
-            //     answerSec.appendChild(alert);
-            // }
         }
         else {
             while (answerSec.firstChild) {

@@ -69,42 +69,37 @@ namespace Twitter {
             request[key] = value.toString();
         });
         if (request.lastname && request.firstname && request.email && request.studycourse && request.semester) {
-            // if (request.email == userEmail) {
-                request["command"] = "editUser";
-                let answer: ResponseFromServer = await postToServer(request);
-                if (answer) {
-                    if ("status" in answer) {
-                        let status: number = answer.status;
-                        let message: string = answer.message;
-                        while (answerSec.firstChild) {
-                            answerSec.removeChild(answerSec.lastChild);
-                        }
-                        if (status < 0) {
-                            let alert: HTMLDivElement = createAlertElement(message, KEYALERTERROR);
-                            answerSec.appendChild(alert);
-                            fillFormWithActData();
-                        } else {
-                            let alert: HTMLDivElement = createAlertElement(message, KEYALERTOK);
-                            answerSec.appendChild(alert);
+            request["command"] = "editUser";
+            let answer: ResponseFromServer = await postToServer(request);
+            if (answer) {
+                if ("status" in answer) {
+                    let status: number = answer.status;
+                    let message: string = answer.message;
+                    while (answerSec.firstChild) {
+                        answerSec.removeChild(answerSec.lastChild);
+                    }
+                    if (status < 0) {
+                        let alert: HTMLDivElement = createAlertElement(message, KEYALERTERROR);
+                        answerSec.appendChild(alert);
+                        fillFormWithActData();
+                    } else {
+                        let alert: HTMLDivElement = createAlertElement(message, KEYALERTOK);
+                        answerSec.appendChild(alert);
+                        if (request.email == userEmail) {
                             removeValuesFromInput();
                             deleteAuthCookie(false);
                             if (answer.authCookieString) {
                                 saveAuthCookie(answer.authCookieString);
                             }
                             fillFormWithActData();
+                        } else {
+                            deleteAuthCookie(true);
                         }
                     }
-                } else {
-                    console.log("No answer");
                 }
-            // } else {
-            //     while (answerSec.firstChild) {
-            //         answerSec.removeChild(answerSec.lastChild);
-            //     }
-            //     let alert: HTMLDivElement = createAlertElement("Wrong Email", KEYALERTERROR);
-            //     answerSec.appendChild(alert);
-            // }
-
+            } else {
+                console.log("No answer");
+            }
         } else {
             while (answerSec.firstChild) {
                 answerSec.removeChild(answerSec.lastChild);
