@@ -2,7 +2,7 @@
 var Twitter;
 (function (Twitter) {
     // export let url: string = "http://localhost:8100";
-    Twitter.url = "https://twitterclonegis.herokuapp.com";
+    Twitter.url = "https://chamois-jw.herokuapp.com";
     let KEYLASTLOCATION = "lastLocation";
     Twitter.KEYLOGINREDIRECTMESSAGE = "loginRedirectMessage";
     Twitter.KEYALERTERROR = 0;

@@ -4,9 +4,9 @@ exports.connectToDatabase = exports.dbDeletedUsers = exports.dbTweets = exports.
 const Mongo = require("mongodb");
 const secret = require("./secrets");
 let dbUsersCollectionName = "Users";
-let dbTweetsCollectionName = "Tweets";
+let dbTweetsCollectionName = "Chamis";
 let dbDeletedUsersCollectionName = "UsersDel";
-let databaseName = "Twitter";
+let databaseName = "Chamoise";
 async function connectToDatabase() {
     let databaseUrl;
     let startArgs = process.argv.slice(2);
@@ -17,7 +17,7 @@ async function connectToDatabase() {
             console.log("running local");
             break;
         case "remote":
-            databaseUrl = "mongodb+srv://" + secret.dbServerUserName + ":" + secret.dbServerPW + "@gismib2.wulcs.mongodb.net/" + databaseName + "?retryWrites=true&w=majority";
+            databaseUrl = "mongodb+srv://" + secret.dbServerUserName + ":" + secret.dbServerPW + "@chamois.d7p8p.mongodb.net/" + databaseName + "?retryWrites=true&w=majority";
             console.log("running remote");
             break;
         default:
