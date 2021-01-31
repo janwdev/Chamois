@@ -63,44 +63,43 @@ var Twitter;
             request[key] = value.toString();
         });
         if (request.lastname && request.firstname && request.email && request.studycourse && request.semester) {
-            if (request.email == userEmail) {
-                request["command"] = "editUser";
-                let answer = await Twitter.postToServer(request);
-                if (answer) {
-                    if ("status" in answer) {
-                        let status = answer.status;
-                        let message = answer.message;
-                        while (answerSec.firstChild) {
-                            answerSec.removeChild(answerSec.lastChild);
-                        }
-                        if (status < 0) {
-                            let alert = Twitter.createAlertElement(message, Twitter.KEYALERTERROR);
-                            answerSec.appendChild(alert);
-                            fillFormWithActData();
-                        }
-                        else {
-                            let alert = Twitter.createAlertElement(message, Twitter.KEYALERTOK);
-                            answerSec.appendChild(alert);
-                            removeValuesFromInput();
-                            Twitter.deleteAuthCookie(false);
-                            if (answer.authCookieString) {
-                                Twitter.saveAuthCookie(answer.authCookieString);
-                            }
-                            fillFormWithActData();
-                        }
+            // if (request.email == userEmail) {
+            request["command"] = "editUser";
+            let answer = await Twitter.postToServer(request);
+            if (answer) {
+                if ("status" in answer) {
+                    let status = answer.status;
+                    let message = answer.message;
+                    while (answerSec.firstChild) {
+                        answerSec.removeChild(answerSec.lastChild);
                     }
-                }
-                else {
-                    console.log("No answer");
+                    if (status < 0) {
+                        let alert = Twitter.createAlertElement(message, Twitter.KEYALERTERROR);
+                        answerSec.appendChild(alert);
+                        fillFormWithActData();
+                    }
+                    else {
+                        let alert = Twitter.createAlertElement(message, Twitter.KEYALERTOK);
+                        answerSec.appendChild(alert);
+                        removeValuesFromInput();
+                        Twitter.deleteAuthCookie(false);
+                        if (answer.authCookieString) {
+                            Twitter.saveAuthCookie(answer.authCookieString);
+                        }
+                        fillFormWithActData();
+                    }
                 }
             }
             else {
-                while (answerSec.firstChild) {
-                    answerSec.removeChild(answerSec.lastChild);
-                }
-                let alert = Twitter.createAlertElement("Wrong Email", Twitter.KEYALERTERROR);
-                answerSec.appendChild(alert);
+                console.log("No answer");
             }
+            // } else {
+            //     while (answerSec.firstChild) {
+            //         answerSec.removeChild(answerSec.lastChild);
+            //     }
+            //     let alert: HTMLDivElement = createAlertElement("Wrong Email", KEYALERTERROR);
+            //     answerSec.appendChild(alert);
+            // }
         }
         else {
             while (answerSec.firstChild) {
