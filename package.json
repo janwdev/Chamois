@@ -1,0 +1,30 @@
+{
+  "name": "Chamois",
+  "version": "1.0.0",
+  "description": "Own Twitter Clone in pure HTML, CSS and Typescript ",
+  "main": "index.js",
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/mongodb": "^3.6.3",
+    "@types/node": "^14.14.12",
+    "bcrypt": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.0"
+  },
+  "scripts": {
+    "start": "node server/server.js remote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janwdev/Chamois.git"
+  },
+  "author": "Jannik Weisser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janwdev/Chamois/issues"
+  },
+  "homepage": "https://janwdev.github.io/Chamois/"
+}

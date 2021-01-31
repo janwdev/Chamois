@@ -6,9 +6,9 @@ export let dbTweets: Mongo.Collection;
 export let dbDeletedUsers: Mongo.Collection;
 
 let dbUsersCollectionName: string = "Users";
-let dbTweetsCollectionName: string = "Tweets";
+let dbTweetsCollectionName: string = "Chamis";
 let dbDeletedUsersCollectionName: string = "UsersDel";
-let databaseName: string = "Twitter";
+let databaseName: string = "Chamoise";
 
 export async function connectToDatabase(): Promise<void> {
     let databaseUrl: string;
@@ -20,7 +20,7 @@ export async function connectToDatabase(): Promise<void> {
             console.log("running local");
             break;
         case "remote":
-            databaseUrl = "mongodb+srv://" + secret.dbServerUserName + ":" + secret.dbServerPW + "@gismib2.wulcs.mongodb.net/" + databaseName + "?retryWrites=true&w=majority";
+            databaseUrl = "mongodb+srv://" + secret.dbServerUserName + ":" + secret.dbServerPW + "@chamois.d7p8p.mongodb.net/" + databaseName + "?retryWrites=true&w=majority";
             console.log("running remote");
             break;
         default:

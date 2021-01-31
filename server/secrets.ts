@@ -1,3 +1,3 @@
-export let jwtSecret: string = "Z6uZvbQhjgNYSb";
-export let dbServerUserName: string = "user";
-export let dbServerPW: string = "onlineUser";
+export let jwtSecret: string = "PFxJrx638aaMRpNTTRrq";
+export let dbServerUserName: string = "onlineUser";
+export let dbServerPW: string = "chamoiseOnlineUserPW";
